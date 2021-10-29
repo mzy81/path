@@ -111,10 +111,13 @@ class OrderController extends AbstractController
             "id" => $request->get("productid")
         ]);
 
-
         $format = 'Y-m-d H:i:s';
-        $date = \DateTime::createFromFormat($format, $request->get("shippingDate"));
+        $currentShippingDate = $order->getShippingDate();
+        $now = \DateTime::createFromFormat($format, date($format));
 
+        if ($currentShippingDate > $now) return new JsonResponse(["message" => "Your order is already sent!"]);
+
+        $date = \DateTime::createFromFormat($format, $request->get("shippingDate"));
 
         $order->setOrderCode($request->get("orderCode"));
         $order->setQuantity($request->get("quantity"));
