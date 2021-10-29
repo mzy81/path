@@ -3,7 +3,7 @@ Please follow all the steps below, it will take 7 commands to get the system run
 
 p.s. it should be more convinient, hence added a TODO
 
-## Building the project: 
+## Building the project
 
 First build:
 
@@ -17,7 +17,7 @@ install dependencies:
 
 `composer install`
 
-## Configuring DB:
+## Configuring DB
 
 1) Create database: `php bin/console doctrine:database:create`
 
@@ -29,7 +29,7 @@ install dependencies:
 
 `php bin/console lexik:jwt:generate-keypair`
 
-## Usage:
+## Usage
 
 Host: `localhost`
 
